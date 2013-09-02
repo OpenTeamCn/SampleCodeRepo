@@ -21,3 +21,4 @@ No	Column Name	Type	PK/FK	Short Desc	Long Desc
 1.如何使用百度 平台存储图片
 2.如何通过Jersey 在android与服务器之间 数据 传输
 3.如何使用 百度平台的 云数据库存储数据，查询数据
+[NOTE] 在百度 平台上已经建好数据库，在  OpenAppTest>云数据库>uflxAvCHBKKibMxbhzSD,可通过phpMyadmin管理
