@@ -10,6 +10,6 @@ package com.openteam.sums.test;
 public class TestByGX {
 
 	public void test(){
-		
+		System.out.println("This is just for a test");
 	}
 }
