@@ -28,7 +28,7 @@ public class UInfoDao {
 				uinfo.setName(rs.getString("NAME"));
 				uinfo.setBirthday(rs.getDate("BIRTHDAY"));
 				uinfo.setPhoto(rs.getString("PHOTO"));
-				//TODO How to get the actual photo from baidu platform
+				//TODO [gx] How to get the actual photo from baidu platform
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

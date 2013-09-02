@@ -21,7 +21,7 @@ public class UMomentDao {
 	
 	public static Moment getUInfo(){
 		Moment moment = null;
-		String sql = "";//TODO Write a sql to get the latest one
+		String sql = "";//TODO [gx]Write a sql to get the latest one
 		ResultSet rs = MySQLHander.select(sql);
 		try {
 			if (rs.next()) {
