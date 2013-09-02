@@ -1,0 +1,23 @@
+一. 实例项目需求
+Android 客户端 提供输入框，输入 用户的UID，提交给 服务器，服务器查询数据库，数据库有两个表：uinfo_tab和moment_tab，
+根据UID查询到用户的名字，生日，头像，最近发布的状态。然后返回给 android客户端显示。
+
+表1：uinfo_tab
+No	Column Name	Type	PK/FK	Short Desc	Long Desc
+	ID	Int(10)		序列	
+	UID	Int(10)		用户ID	
+	NAME	Varchar(10)		姓名	
+	BIRTHDAY	Date		生日	
+	PHOTO	Varchar(20)		头像路径	
+
+表2：moment_tab
+No	Column Name	Type	PK/FK	Short Desc	Long Desc
+	ID	Int(10)		序列	
+	UID	Int(10)		用户ID	
+	MOMENT	Text		微状态	
+	CREATE_TM	timestamp		创建时间	
+
+二.涉及的技术
+1.如何使用百度 平台存储图片
+2.如何通过Jersey 在android与服务器之间 数据 传输
+3.如何使用 百度平台的 云数据库存储数据，查询数据
