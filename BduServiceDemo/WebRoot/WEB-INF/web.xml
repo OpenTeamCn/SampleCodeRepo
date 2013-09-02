@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+
+<!-- cache-->
+ <servlet>
+    <servlet-name>cachebasic</servlet-name>
+    <servlet-class>com.baidu.cloudservice.memcache.BaeMemcacheBasic</servlet-class>
+</servlet>
+ <servlet>
+    <servlet-name>cachelocker</servlet-name>
+    <servlet-class>com.baidu.cloudservice.memcache.BaeMemcacheLocker</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>cachebasic</servlet-name>
+  	<url-pattern>/cache/basic</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>cachelocker</servlet-name>
+  	<url-pattern>/cache/locker</url-pattern>
+</servlet-mapping>
+
+<!--                           counter                              -->      
+ <servlet>
+    <servlet-name>counterbasic</servlet-name>
+    <servlet-class>com.baidu.cloudservice.counter.BaeCounterBasic</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>counterbasic</servlet-name>
+  	<url-pattern>/counter/basic</url-pattern>
+</servlet-mapping> 
+      
+<!-- rank-->      
+ <servlet>
+    <servlet-name>rankbasic</servlet-name>
+    <servlet-class>com.baidu.cloudservice.rank.BaeRankBasic</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>rankbasic</servlet-name>
+  	<url-pattern>/rank/basic</url-pattern>
+</servlet-mapping>
+      
+<!-- fetchurl-->      
+ <servlet>
+    <servlet-name>fetchurlbasic</servlet-name>
+    <servlet-class>com.baidu.cloudservice.fetchurl.BaeFetchurlBasic</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>fetchurlbasic</servlet-name>
+  	<url-pattern>/fetchurl/basic</url-pattern>
+</servlet-mapping>
+      
+<!-- fetchurl-->      
+ <servlet>
+    <servlet-name>socketbasic</servlet-name>
+    <servlet-class>com.baidu.cloudservice.socket.BaeSocketProxyBasic</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>socketbasic</servlet-name>
+  	<url-pattern>/socket/basic</url-pattern>
+</servlet-mapping>
+
+
+<!-- taskqueue-->      
+ <servlet>
+    <servlet-name>taskgetfetchurl</servlet-name>
+    <servlet-class>com.baidu.cloudservice.taskqueue.BaeTaskQueueGetFetchurl</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>taskgetfetchurl</servlet-name>
+  	<url-pattern>/taskqueue/getfetchurl</url-pattern>
+</servlet-mapping>
+         
+ <servlet>
+    <servlet-name>taskpostfetchurl</servlet-name>
+    <servlet-class>com.baidu.cloudservice.taskqueue.BaeTaskQueuePostFetchurl</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>taskpostfetchurl</servlet-name>
+  	<url-pattern>/taskqueue/postfetchurl</url-pattern>
+</servlet-mapping>
+      
+ <servlet>
+    <servlet-name>taskmodify</servlet-name>
+    <servlet-class>com.baidu.cloudservice.taskqueue.BaeTaskQueueModify</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>taskmodify</servlet-name>
+  	<url-pattern>/taskqueue/modify</url-pattern>
+</servlet-mapping>
+      
+ <servlet>
+    <servlet-name>taskoffline</servlet-name>
+    <servlet-class>com.baidu.cloudservice.taskqueue.BaeTaskQueueOffline</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>taskoffline</servlet-name>
+  	<url-pattern>/taskqueue/offline</url-pattern>
+</servlet-mapping>
+      
+<!-- image-->      
+ <servlet>
+    <servlet-name>annotate</servlet-name>
+    <servlet-class>com.baidu.cloudservice.image.ApplyAnnotate</servlet-class>
+</servlet>
+<servlet>
+    <servlet-name>qrcode</servlet-name>
+	<servlet-class>com.baidu.cloudservice.image.ApplyQRCode</servlet-class>
+</servlet>
+      
+<servlet>
+    <servlet-name>transform</servlet-name>
+	<servlet-class>com.baidu.cloudservice.image.ApplyTransform</servlet-class>
+</servlet>
+      
+ <servlet>
+    <servlet-name>composite</servlet-name>
+    <servlet-class>com.baidu.cloudservice.image.ApplyComposite</servlet-class>
+</servlet> 
+      
+ <servlet>
+    <servlet-name>generatevcode</servlet-name>
+    <servlet-class>com.baidu.cloudservice.image.GenerateVCode</servlet-class>
+</servlet> 
+      
+ <servlet>
+    <servlet-name>verifyvcode</servlet-name>
+    <servlet-class>com.baidu.cloudservice.image.VerifyVCode</servlet-class>
+</servlet> 
+      
+<servlet-mapping>
+    <servlet-name>annotate</servlet-name>
+  	<url-pattern>/image/annotate</url-pattern>
+</servlet-mapping>
+      
+<servlet-mapping>
+    <servlet-name>qrcode</servlet-name>
+ 	<url-pattern>/image/qrcode</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>transform</servlet-name>
+  	<url-pattern>/image/transform</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>composite</servlet-name>
+  	<url-pattern>/image/composite</url-pattern>
+</servlet-mapping>  
+      
+<servlet-mapping>
+    <servlet-name>generatevcode</servlet-name>
+  	<url-pattern>/image/generatevcode</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+    <servlet-name>verifyvcode</servlet-name>
+  	<url-pattern>/image/verifyvcode</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>upload</servlet-name>
+    <servlet-class>com.baidu.cloudservice.image.UploadToBCS</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>upload</servlet-name>
+  	<url-pattern>/image/upload</url-pattern>
+</servlet-mapping>
+      
+<!-- mysql-->      
+ <servlet>
+    <servlet-name>mysql</servlet-name>
+    <servlet-class>com.baidu.cloudservice.mysql.MySQLBasic</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>mysql</servlet-name>
+  	<url-pattern>/mysql/basic</url-pattern>
+</servlet-mapping>
+      
+<!-- mongo-->      
+ <servlet>
+    <servlet-name>mongodb</servlet-name>
+    <servlet-class>com.baidu.cloudservice.mongodb.MongoDBBasic</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>mongodb</servlet-name>
+  	<url-pattern>/mongodb/basic</url-pattern>
+</servlet-mapping>
+
+<!-- redis-->      
+ <servlet>
+    <servlet-name>redis</servlet-name>
+    <servlet-class>com.baidu.cloudservice.redis.RedisBasic</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>redis</servlet-name>
+  	<url-pattern>/redis/basic</url-pattern>
+</servlet-mapping>
+      
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

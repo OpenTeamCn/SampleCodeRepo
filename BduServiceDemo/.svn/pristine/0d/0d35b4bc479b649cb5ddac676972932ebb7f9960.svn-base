@@ -1,0 +1,14 @@
+<HTML>
+  <HEAD>
+    <TITLE>Task Queue</TITLE>
+    <META http-equiv="Pragma" content="no-cache">
+    <META http-equiv="Cache-Control" content="no-cache,no-store">
+    <META http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  </HEAD>
+<BODY>
+  <a href="/taskqueue/getfetchurl"><h3>fetchurl task(GET)</h3></a><br>
+  <a href="/taskqueue/postfetchurl"><h3>fetchurl task(POST)</h3></a><br>
+  <a href="/taskqueue/offline"><h3>offline download task</h3></a><br>
+  <a href="/taskqueue/modify"><h3>modify task queue</h3></a><br>
+</BODY>
+</HTML>
