@@ -4,20 +4,26 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.openteam.sample.bean.UserBean;
 import com.openteam.sample.dao.UserDao;
+import com.openteam.sample.rest.UserResource;
 import com.openteam.sample.service.UserService;
 import com.openteam.sample.utils.DateUtil;
 
 public class UserServiceImpl implements UserService {
+    
+    private static Logger logger = Logger.getLogger(UserServiceImpl.class);
+    
 	private UserDao userDao;
 
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}
 
-	public UserBean findUserById(Long uid) {
-		return this.userDao.findUserById(uid);
+	public UserBean findUserByUid(Long uid) {
+		return this.userDao.findUserByUid(uid);
 	}
 
 	public List<UserBean> getAllUser() {
@@ -33,8 +39,9 @@ public class UserServiceImpl implements UserService {
 		return userList;
 	}
 
-	public Long saveUser(UserBean bean) {
-		return null;
+	public Long saveUser(UserBean user) {
+	    logger.info("Save user [name="+user.getName()+",birthday="+user.getBirthday()+"]");
+	    return new Long(0);
 	}
 
 	public Long removeUser(Long uid) {

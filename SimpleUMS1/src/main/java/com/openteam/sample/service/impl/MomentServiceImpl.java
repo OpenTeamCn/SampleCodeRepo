@@ -12,6 +12,6 @@ public class MomentServiceImpl implements MomentService {
 	}
 
 	public MomentBean findMomentByUid(Long uid) {
-		return this.momentDao.findMomentByUid(uid);
+		return this.momentDao.getLatestMoment(uid);
 	}
 }

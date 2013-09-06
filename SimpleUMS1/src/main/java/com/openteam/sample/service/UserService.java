@@ -5,11 +5,11 @@ import com.openteam.sample.bean.UserBean;
 import java.util.List;
 
 public interface UserService {
-	public UserBean findUserById(Long paramLong);
+	public UserBean findUserByUid(Long paramLong);
 
 	public List<UserBean> getAllUser();
 
-	public Long saveUser(UserBean paramUserBean);
+	public Long saveUser(UserBean user);
 
 	public Long removeUser(Long paramLong);
 
