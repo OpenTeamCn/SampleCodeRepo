@@ -6,6 +6,7 @@ import com.sun.jersey.spi.resource.Singleton;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -19,7 +20,7 @@ import javax.ws.rs.QueryParam;
 import org.apache.log4j.Logger;
 
 @Singleton
-@Path("user")
+@Path("/user")
 public class UserResource {
 	private static Logger logger = Logger.getLogger(UserResource.class);
 	private UserService userService;
@@ -31,25 +32,27 @@ public class UserResource {
 	@GET
 	@Path("{uid}")
 	@Produces({ "application/xml", "application/json" })
-	public UserBean getMetadata(@PathParam("uid") Long uid) {
+	public UserBean getUser(@PathParam("uid") Long uid) {
 		logger.info("get user by id :" + uid);
-		return this.userService.findUserById(uid);
+		return this.userService.findUserByUid(uid);
 	}
 
 	@GET
 	@Path("list")
 	@Produces({ "application/xml", "application/json" })
-	public List<UserBean> getAllUserBeans() {
+	public List<UserBean> getAllUser() {
 		return this.userService.getAllUser();
 	}
 
 	@POST
 	@Path("add")
-	@Produces({ "text/plain" })
+	@Consumes("application/x-www-form-urlencoded")
 	public Long addUserBean(@FormParam("name") String name,
-			@FormParam("dept") String dept) {
-		UserBean bean = new UserBean();
-		return this.userService.saveUser(bean);
+			@FormParam("dept") String birthday) {
+		UserBean user = new UserBean();
+		user.setName(name);
+		user.setBirthday(birthday);
+		return this.userService.saveUser(user);
 	}
 
 	@DELETE

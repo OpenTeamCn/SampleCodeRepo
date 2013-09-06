@@ -9,9 +9,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
+import org.apache.log4j.Logger;
+
 @Singleton
-@Path("moment")
+@Path("/moment")
 public class MomentResource {
+    private static Logger logger = Logger.getLogger(MomentResource.class);
 	private MomentService momentService;
 
 	public void setMomentService(MomentService momentService) {
@@ -21,7 +24,7 @@ public class MomentResource {
 	@GET
 	@Path("{uid}")
 	@Produces({ "application/xml", "application/json" })
-	public MomentBean getMetadata(@PathParam("uid") Long uid) {
+	public MomentBean getMoment(@PathParam("uid") Long uid) {
 		return this.momentService.findMomentByUid(uid);
 	}
 }
