@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="/WEB-INF/jdbc.properties" />
+	</bean>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialSize" value="${jdbc.initialSize}" />
+		<property name="maxActive" value="${jdbc.maxActive}" />
+		<property name="maxIdle" value="${jdbc.maxIdle}" />
+		<property name="minIdle" value="${jdbc.minIdle}" />
+		<property name="maxWait" value="${jdbc.maxWait}" />
+		<property name="validationQuery" value="${jdbc.validationQuery}"/> 
+		<property name="poolPreparedStatements" value="true"/>
+		<property name="defaultAutoCommit" value="true"/>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<!-- REST begin -->
+	<bean id="userResource" class="com.openteam.demo.rest.UserResource">
+	    <property name="userService" ref="userService"/>
+	</bean>
+	<bean id="momentResource" class="com.openteam.demo.rest.MomentResource">
+	    <property name="momentService" ref="momentService"/>
+	</bean>
+	<!-- REST end -->
+	<!-- Service begin -->
+	<bean id="userService" class="com.openteam.demo.service.impl.UserServiceImpl">
+	    <property name="userDao" ref="userDao"/>
+	</bean>
+	<bean id="momentService" class="com.openteam.demo.service.impl.MomentServiceImpl">
+	    <property name="momentDao" ref="momentDao"/>
+	</bean>
+	<!-- Service end -->
+	<!-- Dao begin -->
+	<bean id="userDao" class="com.openteam.demo.dao.impl.UserDaoImpl">
+	    <property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	<bean id="momentDao" class="com.openteam.demo.dao.impl.MomentDaoImpl">
+	    <property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	<!-- Dao end -->
+</beans>
