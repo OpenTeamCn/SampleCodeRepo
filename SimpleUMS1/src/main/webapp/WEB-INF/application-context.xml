@@ -32,26 +32,26 @@
 	</bean>
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 	<!-- REST begin -->
-	<bean id="userResource" class="com.openteam.demo.rest.UserResource">
+	<bean id="userResource" class="com.openteam.sample.rest.UserResource">
 	    <property name="userService" ref="userService"/>
 	</bean>
-	<bean id="momentResource" class="com.openteam.demo.rest.MomentResource">
+	<bean id="momentResource" class="com.openteam.sample.rest.MomentResource">
 	    <property name="momentService" ref="momentService"/>
 	</bean>
 	<!-- REST end -->
 	<!-- Service begin -->
-	<bean id="userService" class="com.openteam.demo.service.impl.UserServiceImpl">
+	<bean id="userService" class="com.openteam.sample.service.impl.UserServiceImpl">
 	    <property name="userDao" ref="userDao"/>
 	</bean>
-	<bean id="momentService" class="com.openteam.demo.service.impl.MomentServiceImpl">
+	<bean id="momentService" class="com.openteam.sample.service.impl.MomentServiceImpl">
 	    <property name="momentDao" ref="momentDao"/>
 	</bean>
 	<!-- Service end -->
 	<!-- Dao begin -->
-	<bean id="userDao" class="com.openteam.demo.dao.impl.UserDaoImpl">
+	<bean id="userDao" class="com.openteam.sample.dao.impl.UserDaoImpl">
 	    <property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
-	<bean id="momentDao" class="com.openteam.demo.dao.impl.MomentDaoImpl">
+	<bean id="momentDao" class="com.openteam.sample.dao.impl.MomentDaoImpl">
 	    <property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
 	<!-- Dao end -->
