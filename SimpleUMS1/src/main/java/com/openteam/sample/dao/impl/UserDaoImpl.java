@@ -16,7 +16,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public UserBean findUserById(Long uid) {
+	public UserBean findUserByUid(Long uid) {
 		String sql = "SELECT * FROM uinfo_tab WHERE uid=?";
 		List<UserBean> list = this.jdbcTemplate.query(sql,
 				new Object[] { uid }, new UserRM());

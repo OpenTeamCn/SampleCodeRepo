@@ -16,8 +16,8 @@ public class MomentDaoImpl implements MomentDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public MomentBean findMomentByUid(Long uid) {
-		String sql = "SELECT * FROM moment_tab WHERE uid=?";
+	public MomentBean getLatestMoment(Long uid) {
+		String sql = "SELECT * FROM moment_tab WHERE uid=? ORDER BY create_tm";//
 		List<MomentBean> list = this.jdbcTemplate.query(sql,
 				new Object[] { uid }, new MomentRM());
 		if ((list == null) || (list.size() == 0)) {
