@@ -9,7 +9,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import com.openteam.sums.bean.Moment;
-import com.openteam.sums.util.MySQLHander;
+import com.openteam.sums.util.MySQLHandler;
 
 /**
  * @author tgu011
@@ -22,7 +22,7 @@ public class UMomentDao {
 	public static Moment getUInfo(){
 		Moment moment = null;
 		String sql = "";//TODO [gx]Write a sql to get the latest one
-		ResultSet rs = MySQLHander.select(sql);
+		ResultSet rs = MySQLHandler.select(sql);
 		try {
 			if (rs.next()) {
 				moment = new Moment();

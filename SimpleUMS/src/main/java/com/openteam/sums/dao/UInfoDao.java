@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import com.openteam.sums.bean.Moment;
 import com.openteam.sums.bean.UInfo;
-import com.openteam.sums.util.MySQLHander;
+import com.openteam.sums.util.MySQLHandler;
 
 /**
  * @author tgu011
@@ -19,7 +19,7 @@ public class UInfoDao {
 	public static UInfo getUInfo(){
 		UInfo uinfo = null;
 		String sql = "";
-		ResultSet rs = MySQLHander.select(sql);
+		ResultSet rs = MySQLHandler.select(sql);
 		try {
 			while(rs.next()){
 				uinfo = new UInfo();
