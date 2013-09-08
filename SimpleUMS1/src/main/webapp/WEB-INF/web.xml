@@ -31,6 +31,6 @@
     <servlet-mapping>
             <servlet-name>Rest_Servlet</servlet-name>
             <!-- Redirect any calls to our jersey servlet -->
-            <url-pattern>/rest/*</url-pattern>
+            <url-pattern>/sampservice/*</url-pattern>
     </servlet-mapping> 
 </web-app>
